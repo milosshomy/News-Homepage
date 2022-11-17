@@ -108,6 +108,10 @@ body {
   content: url(../img/icon-menu-close.svg);
 }
 
+body.fixed {
+  position: fixed;
+}
+
 /* Main */
 
 .grid-container {
