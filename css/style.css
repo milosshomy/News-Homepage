@@ -1,0 +1,153 @@
+/* Reset */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+hr,
+figure,
+blockquote {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* Variables */
+
+:root {
+  --soft-orange-clr: hsl(35, 77%, 62%);
+  --sort-red-clr: hsl(5, 85%, 63%);
+  --off-white-clr: hsl(36, 100%, 99%);
+  --grayish-blue-clr: hsl(233, 8%, 79%);
+  --dark-grayish-blue-clr: hsl(236, 13%, 42%);
+  --very-dark-blue-clr: hsl(240, 100%, 5%);
+  --fs: 0.9375rem;
+  --primary-ff: "Inter", sans-serif;
+}
+
+/* Body */
+
+body {
+  font-family: var(--primary-ff);
+  font-size: var(--fs);
+  background-color: var(--off-white-clr);
+}
+
+/* Header */
+
+.header {
+  padding-block-start: 5rem;
+  padding-block-end: 3rem;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu-item:not(:last-child) {
+  margin-inline-end: 2rem;
+}
+
+.menu-link {
+  color: var(--dark-grayish-blue-clr);
+  transition: color 200ms ease-in;
+}
+
+/* .menu-link:hover {
+  color: var(--sort-red-clr);
+} */
+
+.hamburger {
+  float: right;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.hamburger img {
+  content: url(../img/icon-menu.svg);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  translate: -100%;
+  /*   transition: 200ms ease-in-out; */
+}
+
+.nav-menu.open {
+  translate: 0;
+  transition: 200ms ease-in-out;
+}
+
+.overlay.show {
+  translate: 0;
+}
+
+.hamburger img.change {
+  content: url(../img/icon-menu-close.svg);
+}
+
+/* Hover Effects */
+
+@media (hover: hover) {
+  .menu-link:hover {
+    color: var(--sort-red-clr);
+  }
+}
+
+/* Media Queries */
+
+@media all and (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    left: 40%;
+    top: 0;
+    background-color: var(--off-white-clr);
+    width: 100%;
+    height: 100%;
+    translate: 100%;
+    z-index: 1;
+  }
+  .menu {
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    padding-inline-start: 2rem;
+  }
+
+  .menu-item:not(:last-child) {
+    margin-inline-end: 0px;
+    margin-block-end: 2rem;
+  }
+
+  .menu-link {
+    color: var(--very-dark-blue-clr);
+  }
+}
