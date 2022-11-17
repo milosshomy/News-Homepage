@@ -121,6 +121,12 @@ body {
   }
 }
 
+@media (hover: none) {
+  .menu-link:hover {
+    color: var(--dark-grayish-blue-clr);
+  }
+}
+
 /* Media Queries */
 
 @media all and (max-width: 768px) {
